@@ -8,3 +8,6 @@ class Account:
         if amount <= 0:
             raise ValueError("O valor do depósito deve ser maior que zero")
         self.balance += amount
+    
+    def withdraw(self, amount):
+        self.balance -= amount
