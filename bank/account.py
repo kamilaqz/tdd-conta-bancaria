@@ -18,5 +18,9 @@ class Account:
             raise ValueError("Saldo insuficiente")
         self.balance -= amount
     
-    def get_balance(self):
+    def get_balance(self) -> float:
+        if not isinstance(self.balance, (int, float)):
+            raise TypeError("Saldo corrompido: deve ser um número")
+        if self.balance < 0:
+            raise ValueError("Saldo corrompido: não pode ser negativo")
         return self.balance
