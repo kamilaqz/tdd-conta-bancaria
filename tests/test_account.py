@@ -38,3 +38,16 @@ def test_transfer_between_accounts():
     account1.transfer(50, account2)
     assert account1.balance == 50
     assert account2.balance == 50
+
+
+def test_account_statement():
+    # Mostra um extrato com todas as transações
+    account = Account()
+    account.deposit(100)
+    account.withdraw(30)
+    account.deposit(50)
+    statement = account.get_statement()
+    assert len(statement) == 3
+    assert statement[0] == "Depósito: +100"
+    assert statement[1] == "Saque: -30"
+    assert statement[2] == "Depósito: +50"
