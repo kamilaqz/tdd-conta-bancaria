@@ -1,6 +1,7 @@
 class Account:
     def __init__(self) -> None:
         self.balance: float = 0
+        self.transactions = []
     
     def deposit(self, amount: float) -> None:
         if not isinstance(amount, (int, float)):
@@ -8,6 +9,7 @@ class Account:
         if amount <= 0:
             raise ValueError("O valor do depósito deve ser maior que zero")
         self.balance += amount
+        self.transactions.append(f"Depósito: +{amount:.0f}")
     
     def withdraw(self, amount: float) -> None:
         if not isinstance(amount, (int, float)):
@@ -17,6 +19,7 @@ class Account:
         if amount > self.balance:
             raise ValueError("Saldo insuficiente")
         self.balance -= amount
+        self.transactions.append(f"Saque: -{amount:.0f}")
     
     def get_balance(self) -> float:
         if not isinstance(self.balance, (int, float)):
@@ -34,3 +37,6 @@ class Account:
             raise TypeError("A conta de destino deve ser uma instância de Account")
         self.withdraw(amount)
         destination_account.deposit(amount)
+    
+    def get_statement(self):
+        return self.transactions
