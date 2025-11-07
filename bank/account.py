@@ -17,3 +17,6 @@ class Account:
         if amount > self.balance:
             raise ValueError("Saldo insuficiente")
         self.balance -= amount
+    
+    def get_balance(self):
+        return self.balance
