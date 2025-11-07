@@ -12,3 +12,11 @@ def test_deposit_increases_balance():
     account = Account()
     account.deposit(100)
     assert account.balance == 100
+
+
+def test_withdraw_decreases_balance():
+    # Saca um valor e verifica se o saldo diminui
+    account = Account()
+    account.deposit(100)
+    account.withdraw(30)
+    assert account.balance == 70
