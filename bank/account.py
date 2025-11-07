@@ -1,7 +1,7 @@
 class Account:
     def __init__(self) -> None:
         self.balance: float = 0
-        self.transactions = []
+        self.transactions: list[str] = []
     
     def deposit(self, amount: float) -> None:
         if not isinstance(amount, (int, float)):
@@ -38,5 +38,5 @@ class Account:
         self.withdraw(amount)
         destination_account.deposit(amount)
     
-    def get_statement(self):
-        return self.transactions
+    def get_statement(self) -> list[str]:
+        return self.transactions.copy()
