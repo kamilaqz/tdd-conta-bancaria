@@ -20,3 +20,11 @@ def test_withdraw_decreases_balance():
     account.deposit(100)
     account.withdraw(30)
     assert account.balance == 70
+
+
+def test_get_balance_returns_current_balance():
+    # Consulta o saldo atual
+    account = Account()
+    account.deposit(150)
+    account.withdraw(50)
+    assert account.get_balance() == 100
