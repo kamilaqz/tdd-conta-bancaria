@@ -24,3 +24,7 @@ class Account:
         if self.balance < 0:
             raise ValueError("Saldo corrompido: não pode ser negativo")
         return self.balance
+    
+    def transfer(self, amount, destination_account):
+        self.withdraw(amount)
+        destination_account.deposit(amount)
