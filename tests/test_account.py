@@ -28,3 +28,13 @@ def test_get_balance_returns_current_balance():
     account.deposit(150)
     account.withdraw(50)
     assert account.get_balance() == 100
+
+
+def test_transfer_between_accounts():
+    # Transfere dinheiro entre duas contas
+    account1 = Account()
+    account2 = Account()
+    account1.deposit(100)
+    account1.transfer(50, account2)
+    assert account1.balance == 50
+    assert account2.balance == 50
