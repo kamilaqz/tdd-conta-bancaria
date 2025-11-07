@@ -1,3 +1,3 @@
 class Account:
-    def __init__(self):
-        self.balance = 0
+    def __init__(self) -> None:
+        self.balance: float = 0
